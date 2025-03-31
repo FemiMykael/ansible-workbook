@@ -1,0 +1,12 @@
+---
+- name: Dynamic Page
+  hosts: M2
+  become: yes
+
+  tasks:
+    - name: Update Dynamic Message
+      template: 
+        src: dynamic.j2
+        dest: /var/www/html/dynamic.html
+        
+... 
