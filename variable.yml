@@ -1,0 +1,14 @@
+---
+- name: Variables Sample
+  hosts: M2
+  become: yes
+  vars:
+  myid: FemiMykael
+
+  tasks:
+    - name: Update Dynamic Message
+      template: 
+        src: dynamic.j2
+        dest: /var/www/html/dynamic.html
+        
+... 
