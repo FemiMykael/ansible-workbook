@@ -58,18 +58,18 @@
       apt: 
         name: apache2
         state: present
-      when: ansible_distribution == "Ubuntu"
+      when: ansible_distribution in ["Ubuntu", "Debian"]
 
     - name: Start apache2
       service: 
         name: apache2
         state: started
-      when: ansible_distribution == "Ubuntu"
+      when: ansible_distribution in ["Ubuntu", "Debian"]
 
     - name: Enable apache2
       service: 
         name: apache2
         enabled: yes
-      when: ansible_distribution == "Ubuntu"  
+      when: ansible_distribution in ["Ubuntu", "Debian"]
 
 ... 
