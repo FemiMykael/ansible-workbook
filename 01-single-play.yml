@@ -1,0 +1,11 @@
+---
+- name: Update M1 server
+  hosts: M1
+
+  tasks:
+    - name: Create Directory
+      file: 
+        path: /home/ec2-user/new_dir
+        state: directory
+
+... 
