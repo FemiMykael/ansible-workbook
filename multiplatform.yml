@@ -25,6 +25,30 @@
       when: ansible_distribution in ["Amazon", "RedHat"]
 
 
+- name: Install httpd server
+  hosts: g1
+  become: yes
+
+  tasks:
+    - name: Install httpd
+      dnf: 
+        name: httpd
+        state: present
+      when: ansible_distribution == "CentOS"
+
+    - name: Start httpd
+      service: 
+        name: httpd
+        state: started
+      when: ansible_distribution == "CentOS"
+
+
+    - name: Enable httpd
+      service: 
+        name: httpd
+        enabled: yes
+      when: ansible_distribution == "CentOS"
+
 - name: Install Apache server
   hosts: g2
   become: yes
